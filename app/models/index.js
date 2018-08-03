@@ -1,17 +1,17 @@
-const fs = require('fs');
+const db        = {};
+const fs        = require('fs');
+const files     = fs.readdirSync(__dirname);
 const Sequelize = require('sequelize');
-const files = fs.readdirSync(__dirname);
-const db = {};
 
 const sequelize = new Sequelize(
-  process.env.GRAYSCALE_DATABASE_NAME,
-  process.env.GRAYSCALE_DATABASE_USERNAME,
-  process.env.GRAYSCALE_DATABASE_PASSWORD, {
-    host: process.env.GRAYSCALE_DATABASE_HOSTNAME,
+  process.env.TEST_DATABASE_NAME,
+  process.env.TEST_DATABASE_USERNAME,
+  process.env.TEST_DATABASE_PASSWORD, {
+    host: process.env.TEST_DATABASE_HOSTNAME,
     dialect: 'postgres',
     operatorsAliases: false,
     dialectOptions: {
-      ssl: (process.env.GRAYSCALE_DATABASE_SSL_VALUE === "true"),
+      ssl: (process.env.TEST_DATABASE_SSL_VALUE === "true"),
     },
     define: {
       underscored: true,

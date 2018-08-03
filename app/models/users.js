@@ -34,6 +34,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       allowNull: false,
     },
+    deleted_at: {
+      type: DataTypes.DATE,
+    },
+    created_at: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
+    updated_at: {
+      allowNull: false,
+      type: DataTypes.DATE
+    }
   }, {
     paranoid: true,
     underscored: true,

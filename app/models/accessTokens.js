@@ -14,20 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
     },
     expired_at: {
       type: DataTypes.DATE,
       timezone: 'UTC'
     },
-    deletedAt: {
+    deleted_at: {
       type: DataTypes.DATE,
     },
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE
     }
