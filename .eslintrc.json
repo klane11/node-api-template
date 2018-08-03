@@ -1,0 +1,32 @@
+{
+  "plugins": ["node"],
+	"extends": ["eslint:recommended", "plugin:node/recommended"],
+	"env": {
+		"es6": true
+	},
+	"rules": {
+		"no-process-exit": "off",
+		"node/exports-style": ["error", "module.exports"],
+		"node/no-extraneous-require": ["error"],
+		"node/no-missing-require": [
+			"error", {
+				"allowModules": [],
+				"resolvePaths": ["./app"],
+				"tryExtensions": [".js", ".json", ".node"]
+			}
+		],
+		"node/no-unsupported-features": [
+			"error", {
+				"version": 8,
+				"ignores": []
+			}
+		],
+		"semi": [2, "always"],
+		"indent": [2, 2],
+		"no-tabs": 0,
+		"space-infix-ops": "error"
+	},
+	"parserOptions": {
+		"ecmaVersion": 2017
+	}
+}
