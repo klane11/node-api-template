@@ -1,13 +1,12 @@
-const Models = require('../../models');
 const Errors = require('../../errors');
-const { AccessTokens, Companies } = Models;
+const Models = require('../../models');
+const { AccessTokens } = Models;
 
 
 function authenticateApplication(request, response, next) {
-  const applicationKey = request.get('X-Grayscale-Application-Key');
-  const applicationSecret = request.get('X-Grayscale-Application-Secret');
-
-  if (applicationKey != process.env.GRAYSCALE_APPLICATION_KEY || applicationSecret != process.env.GRAYSCALE_APPLICATION_SECRET) {
+  const applicationKey = request.get('X-Application-Key');
+  const applicationSecret = request.get('X-Application-Secret');
+  if (applicationKey != 'key' || applicationSecret != 'secret') {
     throw new Errors.ApplicationUnauthorized();
   } else {
     next();

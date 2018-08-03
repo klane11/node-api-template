@@ -15,7 +15,7 @@ const {
 } = Controllers;
 
 
-v1Router.post('/access_tokens', Authentication.authenticateApplication, AccessTokensController.create);
+v1Router.post('/access_token', Authentication.authenticateApplication, AccessTokensController.create);
 
 v1Router.use(Authentication.ensureAccessTokenProvided);
 

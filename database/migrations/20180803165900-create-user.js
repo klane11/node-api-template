@@ -14,7 +14,7 @@ module.exports = {
       },
       last_name: {
         allowNull: false,
-        type: Sequelize.STING
+        type: Sequelize.STRING
       },
       email: {
         allowNull: false,
@@ -22,15 +22,7 @@ module.exports = {
       },
       encrypted_password: {
         allowNull: false,
-        type: DataTypes.STRING,
-      },
-      password: {
-        type: DataTypes.VIRTUAL,
-        allowNull: false,
-      },
-      password_confirmation: {
-        type: DataTypes.VIRTUAL,
-        allowNull: false,
+        type: Sequelize.STRING,
       },
       deletedAt: {
         type: Sequelize.DATE

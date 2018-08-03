@@ -10,12 +10,10 @@ module.exports = {
       },
       guid: {
         type: Sequelize.TEXT,
-        defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
       },
       expired_at: {
         type: Sequelize.DATE,
@@ -34,7 +32,7 @@ module.exports = {
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface) => {
     return queryInterface.dropTable('access_tokens');
   }
 };
