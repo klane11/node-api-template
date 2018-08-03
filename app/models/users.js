@@ -1,6 +1,9 @@
 'use strict';
+const Errors = require('../errors');
+const bcrypt = require('bcryptjs');
+
 module.exports = (sequelize, DataTypes) => {
-  let schema = sequelize.define('users', {
+  var users = sequelize.define('users', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -19,12 +22,55 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING,
     },
+    encrypted_password: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+    password: {
+      type: DataTypes.VIRTUAL,
+      allowNull: false,
+    },
+    password_confirmation: {
+      type: DataTypes.VIRTUAL,
+      allowNull: false,
+    },
   }, {
     paranoid: true,
     underscored: true,
   });
-  schema.associate = function(models) {
-    // associations can be defined here
+
+  users.associate = function(models) {
+    Users.hasOne(models.AccessTokens);
   };
-  return schema;
+
+  users.prototype.authenticate = authenticate;
+
+  users.beforeCreate(cleanUpData);
+  users.beforeCreate(encryptPassword);
+  users.beforeUpdate(cleanUpData);
+  users.beforeUpdate(encryptPassword);
+
+  return users;
 };
+
+
+function authenticate(password) {
+  if (bcrypt.compareSync(password, this.encrypted_password)) return this;
+  return false;
+}
+
+function cleanUpData(user) {
+  user.email = user.email.toLowerCase();
+}
+
+function encryptPassword(user) {
+  if (!user.password) {
+    return;
+  }
+
+  if (user.password != user.password_confirmation) {
+    throw new Errors.GenericError("Password confirmation doesn't match Password");
+  }
+
+  user.encrypted_password = bcrypt.hashSync(user.password, 10);
+}

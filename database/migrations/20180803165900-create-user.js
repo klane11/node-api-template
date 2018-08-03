@@ -18,7 +18,19 @@ module.exports = {
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+      },
+      encrypted_password: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      password: {
+        type: DataTypes.VIRTUAL,
+        allowNull: false,
+      },
+      password_confirmation: {
+        type: DataTypes.VIRTUAL,
+        allowNull: false,
       },
       deletedAt: {
         type: Sequelize.DATE
@@ -33,7 +45,7 @@ module.exports = {
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface) => {
     return queryInterface.dropTable('users');
   }
 };

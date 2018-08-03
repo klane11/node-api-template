@@ -9,12 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       guid: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
+        defaultValue: DataTypes.UUIDV4,
         allowNull: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+      },
+      expired_at: {
+        type: Sequelize.DATE,
+        timezone: 'UTC'
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
       },
       createdAt: {
         allowNull: false,
