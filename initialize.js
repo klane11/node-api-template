@@ -7,8 +7,6 @@ const morgan        = require('morgan');
 const routes        = require('./app/routes');
 
 const app = express();
-const env = require('dotenv').config();
-console.log(env)
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
