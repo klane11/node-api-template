@@ -9,22 +9,22 @@ const {
 } = Middleware;
 
 const {
-  AccessTokensController,
-  LoginController,
-  LogoutController,
+  // AccessTokensController,
+  // LoginController,
+  // LogoutController,
 } = Controllers;
 
 
-v1Router.post('/access_tokens', Authentication.authenticateApplication, AccessTokensController.create);
+// v1Router.post('/access_tokens', Authentication.authenticateApplication, AccessTokensController.create);
 
-v1Router.use(Authentication.ensureAccessTokenProvided);
+// v1Router.use(Authentication.ensureAccessTokenProvided);
 
-v1Router.post('/login', LoginController.create);
+// v1Router.post('/login', LoginController.create);
 
 
-v1Router.use(Authentication.authenticateAdmin);
+// v1Router.use(Authentication.authenticateAdmin);
 
-v1Router.post('/logout', LogoutController.logout);
+// v1Router.post('/logout', LogoutController.logout);
 
 
 
