@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   users.associate = function(models) {
-    Users.hasOne(models.AccessTokens);
+    models.Users.hasOne(models.AccessTokens);
   };
 
   users.prototype.authenticate = authenticate;
@@ -69,7 +69,7 @@ function encryptPassword(user) {
   }
 
   if (user.password != user.password_confirmation) {
-    throw new Errors.GenericError("Password confirmation doesn't match Password");
+    throw new Errors.PasswordConfirmationDoesNotMatch();
   }
 
   user.encrypted_password = bcrypt.hashSync(user.password, 10);

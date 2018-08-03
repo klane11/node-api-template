@@ -1,5 +1,3 @@
-const CleanView = require('../viewUtilities');
-
 module.exports = (user) => {
   return {
     status_code: 1000,

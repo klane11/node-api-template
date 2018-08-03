@@ -41,6 +41,6 @@ async function authenticateUser(request, response, next) {
   }
 }
 
-module.exports.authenticateApplication = authenticateApplication;
+module.exports.authenticateApplication   = authenticateApplication;
 module.exports.ensureAccessTokenProvided = ensureAccessTokenProvided;
-module.exports.authenticateUser = authenticateUser;
+module.exports.authenticateUser          = authenticateUser;

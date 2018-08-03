@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   access_tokens.associate = function(models) {
-    AccessTokens.belongsTo(models.Users);
+    models.AccessTokens.belongsTo(models.Users);
   };
 
   return access_tokens;
