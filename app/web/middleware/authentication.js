@@ -6,7 +6,7 @@ const { AccessTokens } = Models;
 function authenticateApplication(request, response, next) {
   const applicationKey = request.get('X-Application-Key');
   const applicationSecret = request.get('X-Application-Secret');
-  if (applicationKey != 'key' || applicationSecret != 'secret') {
+  if (applicationKey !== 'key' || applicationSecret !== 'secret') {
     throw new Errors.ApplicationUnauthorized();
   } else {
     next();
