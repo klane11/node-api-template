@@ -16,8 +16,8 @@ Template for Node RESTful API with Sequelize, Express, PostgreSQL and other usef
   <li><a href='#lodash'>lodash</a></li>
   <li><a href='#morgan'>morgan</a></li>
   <li><a href='#bcryptjs'>bcryptjs</a></li>
-  <li>body-parser</li>
-  <li>nodemon</li>
+  <li><a href='#parser>body-parser</a></li>
+  <li><a href='#nodemon'>nodemon</a></li>
 </ul>
 
 ***
@@ -61,4 +61,10 @@ POST /web/v1/access_tokens 500 108.819 ms - 71
 
 [bcryptjs](https://www.npmjs.com/package/bcryptjs) aids in server side passwords hashing for security purposes. There is a difference between bcryptjs and the original bcrypt. This version removes all unnessary dependancies.
 
+<h3 id='parser'>body parser</h3>
 
+[body-parser](https://www.npmjs.com/package/body-parser) parses incoming request bodies in a middleware before your handlers, available under the `req.body` property.
+
+<h3 id='nodemon'>nodemon</h3>
+
+[nodemon](https://nodemon.io/) is similar to `npm start` but this automatically watches your application and automatically restarts it if any changes occur. 
