@@ -1,7 +1,7 @@
-module.exports = class ApplicationUnauthorized extends Error {
+module.exports = class IncorrectHeader extends Error {
   constructor(message) {
     super(message || 'Incorrect header');
     this.httpStatusCode = 409;
-    this.grayscaleStatusCode = 2003;
+    this.statusCode = 2003;
   }
 };
