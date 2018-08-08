@@ -1,7 +1,7 @@
-module.exports = class NotFoundError extends Error {
+module.exports = class LoginFailed extends Error {
   constructor(message) {
     super(message || 'Your email or password are incorrect.');
     this.httpStatusCode = 400;
-    this.grayscaleStatusCode = 2020;
+    this.statusCode = 2020;
   }
 };
